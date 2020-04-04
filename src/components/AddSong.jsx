@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { addSong } from "../actions";
 
 class AddSong extends React.Component {
-  state = { title: { title: null } };
+  state = { title: null };
 
   addSong = (e) => {
     e.preventDefault();
