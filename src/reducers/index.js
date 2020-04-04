@@ -1,10 +1,7 @@
 import { combineReducers } from "redux";
 import "../actions";
 
-export const songsReducer = (
-  state = [{ title: "song" }, { title: "song2" }],
-  action
-) => {
+export const songsReducer = (state = [{ title: "song" }], action) => {
   switch (action.type) {
     case "SONG_ADDED":
       return [...state, action.song];
@@ -15,7 +12,7 @@ export const songsReducer = (
 
 export const selectedSongReducer = (selectedSong = null, action) => {
   if (action.type === "SONG_SELECTED") {
-    return (selectedSong = action.payload);
+    return action.payload;
   }
   return selectedSong;
 };

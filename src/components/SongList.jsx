@@ -3,20 +3,15 @@ import { connect } from "react-redux";
 import { selectSong } from "../actions";
 
 class SongList extends React.Component {
-  state = { selectedSong: { title: "test" } };
-
-  selectSong = (song) => {
-    this.setState({ selectedSong: song });
-    this.props.selectSong(this.state.song);
-  };
-
   renderList() {
     const { songs } = this.props;
     return songs.map((song) => {
       return (
         <div>
           <div>{song.title}</div>
-          <button onClick={this.selectSong(song)}>Select song</button>
+          <button onClick={() => this.props.selectSong(song)}>
+            Select song
+          </button>
         </div>
       );
     });
